@@ -1,4 +1,5 @@
 package com.example.BookHub.model;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,7 +13,8 @@ public class Publisher {
     @Column(name = "publishername")
     private String publisherName;
 
-    public Publisher(){}
+    public Publisher() {
+    }
 
     public int getPublisherId() {
         return publisherId;
@@ -29,4 +31,5 @@ public class Publisher {
     public void setPublisherName(String publisherName) {
         this.publisherName = publisherName;
     }
+
 }

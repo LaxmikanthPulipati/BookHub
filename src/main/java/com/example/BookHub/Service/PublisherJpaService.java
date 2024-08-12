@@ -1,9 +1,10 @@
 package com.example.BookHub.Service;
 
 
+import com.example.BookHub.Repository.PublisherRepository;
 import com.example.BookHub.model.Publisher;
 import com.example.BookHub.Repository.PublisherJpaRepository;
-import com.example.BookHub.Repository.PublisherRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class PublisherJpaService implements PublisherRepository {
     }
 
     @Override
-    public Publisher getPublisherById(Integer publisherId) {
+    public Publisher getPublisherById(int publisherId) {
         try{
             Publisher publisher = publisherJpaRepository.findById(publisherId).get();
             return publisher;
@@ -56,10 +57,11 @@ public class PublisherJpaService implements PublisherRepository {
 
     @Override
     public void deletePublisher(int publisherId) {
-        try{
+        try {
             publisherJpaRepository.deleteById(publisherId);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+        throw new ResponseStatusException(HttpStatus.NO_CONTENT);
     }
 }

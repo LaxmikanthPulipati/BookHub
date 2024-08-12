@@ -1,7 +1,7 @@
 package com.example.BookHub.Controller;
 
-import com.example.BookHub.model.Publisher;
 import com.example.BookHub.Service.PublisherJpaService;
+import com.example.BookHub.model.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,7 @@ public class PublisherController {
     }
 
     @GetMapping("/publishers/{publisherId}")
-    public Publisher getPublisherById(@PathVariable Integer publisherId){
+    public Publisher getPublisherById(@PathVariable("publisherId") int publisherId){
         return publisherJpaService.getPublisherById(publisherId);
     }
 
